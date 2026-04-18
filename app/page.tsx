@@ -174,7 +174,7 @@ export default function LandingPage() {
               </div>
 
               {/* Editor Workspace */}
-              <div className="flex flex-col sm:flex-row h-[280px] sm:h-[350px] md:h-[400px]">
+              <div className="flex flex-col sm:flex-row h-[500px] sm:h-[350px] md:h-[400px]">
                 {/* Code Panel */}
                 <div className="flex-1 p-3 sm:p-5 bg-[#fafafa] dark:bg-[#121212] font-mono text-xs sm:text-sm leading-relaxed border-b sm:border-b-0 sm:border-r border-zinc-200 dark:border-zinc-800/80 cursor-text overflow-hidden relative">
                   <div className="absolute top-0 bottom-0 left-0 w-7 sm:w-10 bg-zinc-100/50 dark:bg-[#181818] border-r border-zinc-200/50 dark:border-zinc-800/50 flex flex-col items-end py-3 sm:py-5 pr-1.5 sm:pr-3 text-zinc-400 dark:text-zinc-500 select-none text-[10px] sm:text-xs">
@@ -204,11 +204,11 @@ export default function LandingPage() {
                   <div className="absolute top-2 right-2 sm:top-4 sm:right-4 z-10 px-1.5 sm:px-2 py-0.5 sm:py-1 rounded bg-zinc-100/80 dark:bg-zinc-800/80 text-[8px] sm:text-[10px] font-bold text-zinc-500 dark:text-zinc-400 uppercase tracking-widest backdrop-blur-sm shadow-sm border border-zinc-200/50 dark:border-zinc-700/50">
                     Live Preview
                   </div>
-                  <div className="absolute inset-0 flex items-center justify-center p-4 sm:p-8 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-zinc-50 to-zinc-100 dark:from-zinc-900/40 dark:to-[#0f0f12]">
-                    <div className="w-full max-w-[240px] sm:max-w-sm bg-white dark:bg-[#18181A] p-4 sm:p-8 text-center rounded-xl sm:rounded-2xl shadow-[0_20px_50px_-12px_rgba(0,0,0,0.1)] dark:shadow-[0_20px_50px_-12px_rgba(0,0,0,0.6)] border border-zinc-100 dark:border-zinc-800/60 transform hover:-translate-y-1 transition-transform duration-300">
-                      <h2 className="text-lg sm:text-2xl font-bold text-zinc-900 dark:text-white mb-1 sm:mb-2">Hello, Developer</h2>
-                      <p className="text-xs sm:text-base text-zinc-500 dark:text-zinc-400 mb-3 sm:mb-6 font-medium">Ready to build something amazing?</p>
-                      <button className="px-4 sm:px-6 py-2 sm:py-2.5 text-xs sm:text-base bg-indigo-600 hover:bg-indigo-700 text-white font-medium rounded-lg shadow-md shadow-indigo-600/20 transition-all active:scale-95 w-full">
+                  <div className="absolute inset-0 flex items-center justify-center p-3 sm:p-8 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-zinc-50 to-zinc-100 dark:from-zinc-900/40 dark:to-[#0f0f12]">
+                    <div className="w-full max-w-[220px] sm:max-w-sm bg-white dark:bg-[#18181A] p-4 sm:p-8 text-center rounded-xl sm:rounded-2xl shadow-[0_20px_50px_-12px_rgba(0,0,0,0.1)] dark:shadow-[0_20px_50px_-12px_rgba(0,0,0,0.6)] border border-zinc-100 dark:border-zinc-800/60 transform hover:-translate-y-1 transition-transform duration-300">
+                      <h2 className="text-base sm:text-2xl font-bold text-zinc-900 dark:text-white mb-1 sm:mb-2">Hello, Developer</h2>
+                      <p className="text-[10px] sm:text-base text-zinc-500 dark:text-zinc-400 mb-2 sm:mb-6 font-medium">Ready to build something amazing?</p>
+                      <button className="px-3 sm:px-6 py-1.5 sm:py-2.5 text-[10px] sm:text-base bg-indigo-600 hover:bg-indigo-700 text-white font-medium rounded-lg shadow-md shadow-indigo-600/20 transition-all active:scale-95 w-full">
                         Click me
                       </button>
                     </div>
