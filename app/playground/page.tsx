@@ -11,7 +11,7 @@ import {
   Play, Download, Share2, RefreshCcw, 
   Settings, Layout, Sun, Moon,
   FileCode2, FileJson, Check, Terminal,
-  ChevronUp, ChevronDown, Trash2, Code2, MonitorPlay
+  ChevronUp, ChevronDown, Trash2, Code2, MonitorPlay, Sparkles
 } from "lucide-react";
 import { useTheme } from "@/components/theme-provider";
 import Link from "next/link";
