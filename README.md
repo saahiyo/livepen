@@ -4,7 +4,8 @@
 
 Livepen is a modern, high-performance playground for HTML, CSS, and JavaScript. Designed for speed and focus, it allows developers to prototype front-end ideas with a real-time preview and a professional-grade editor.
 
-![Livepen Preview](https://github.com/user-attachments/assets/livepen-placeholder.png) *(Placeholder for project screenshot)*
+![Livepen Preview](https://github.com/user-attachments/assets/56c5bfa4-a3e4-453d-a92e-26857c698c5c) 
+
 
 ## ✨ Features
 
