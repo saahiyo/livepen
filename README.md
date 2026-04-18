@@ -38,7 +38,7 @@ Livepen is a modern, high-performance playground for HTML, CSS, and JavaScript. 
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/livepen.git
+   git clone https://github.com/saahiyo/livepen.git
    ```
 
 2. Install dependencies:
