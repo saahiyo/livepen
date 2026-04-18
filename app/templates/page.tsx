@@ -112,6 +112,7 @@ export default function TemplatesPage() {
                         <div className="w-10 h-10 rounded-lg bg-zinc-50 dark:bg-zinc-800 flex items-center justify-center text-indigo-600 dark:text-indigo-400 group-hover:bg-indigo-600 group-hover:text-white transition-colors">
                           {template.category === "Layout" ? <Layout className="w-5 h-5" /> : 
                            template.category === "Component" ? <Box className="w-5 h-5" /> : 
+                           template.category === "Starter" ? <Code2 className="w-5 h-5" /> :
                            <Zap className="w-5 h-5" />}
                         </div>
                         <span className="text-[10px] font-bold uppercase tracking-widest px-2 py-1 rounded bg-zinc-100 dark:bg-zinc-800 text-zinc-500 dark:text-zinc-400">
