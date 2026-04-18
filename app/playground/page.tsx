@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef, useCallback, Suspense } from "react";
 import Editor from "@monaco-editor/react";
+import { emmetHTML, emmetCSS, emmetJSX } from "emmet-monaco-es";
 import { Panel, Group as PanelGroup, Separator as PanelResizeHandle } from "react-resizable-panels";
 import LZString from "lz-string";
 import JSZip from "jszip";
@@ -66,6 +67,8 @@ const DEFAULT_JS = `document.getElementById('btn').addEventListener('click', () 
 });`;
 
 type EditorType = "html" | "css" | "javascript";
+
+let emmetInitialized = false;
 
 function PlaygroundContent() {
   const { theme, setTheme } = useTheme();
@@ -327,6 +330,13 @@ function PlaygroundContent() {
                   theme={theme === 'dark' ? 'vs-dark' : 'vs-light'}
                   value={html}
                   onChange={(val) => handleEditorChange(val, "html")}
+                  onMount={(_editor, monaco) => {
+                    if (!emmetInitialized) {
+                      emmetHTML(monaco);
+                      emmetCSS(monaco);
+                      emmetInitialized = true;
+                    }
+                  }}
                   options={{
                     minimap: { enabled: false },
                     fontSize: 14,

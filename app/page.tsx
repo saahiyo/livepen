@@ -100,7 +100,7 @@ export default function LandingPage() {
             viewport={{ once: true, margin: "-100px" }}
             className="max-w-5xl mx-auto"
           >
-            <div className="rounded-xl border border-zinc-200 dark:border-zinc-800 overflow-hidden shadow-2xl shadow-zinc-900/5 dark:shadow-black/30">
+            <div className="rounded-xl border border-zinc-200 dark:border-zinc-800 overflow-hidden shadow-2xl shadow-zinc-900/5 dark:shadow-black/30 cursor-default">
               {/* Mock browser chrome */}
               <div className="flex items-center gap-2 px-4 py-3 bg-zinc-100 dark:bg-zinc-900 border-b border-zinc-200 dark:border-zinc-800">
                 <div className="flex gap-1.5">
@@ -116,7 +116,7 @@ export default function LandingPage() {
               </div>
               {/* Mock editor content */}
               <div className="flex">
-                <div className="flex-1 p-6 bg-zinc-50 dark:bg-[#1a1a2e] font-mono text-sm border-r border-zinc-200 dark:border-zinc-800">
+                <div className="flex-1 p-6 bg-zinc-100 dark:bg-[#1a1a2e] font-mono text-sm border-r border-zinc-200 dark:border-zinc-800 cursor-text">
                   <div className="space-y-1 text-zinc-600 dark:text-zinc-400">
                     <div><span className="text-zinc-400 dark:text-zinc-600 select-none mr-4">1</span><span className="text-red-500 dark:text-red-400">&lt;div</span> <span className="text-amber-600 dark:text-amber-400">class</span>=<span className="text-green-600 dark:text-green-400">&quot;card&quot;</span><span className="text-red-500 dark:text-red-400">&gt;</span></div>
                     <div><span className="text-zinc-400 dark:text-zinc-600 select-none mr-4">2</span>  <span className="text-red-500 dark:text-red-400">&lt;h1&gt;</span>Hello, World!<span className="text-red-500 dark:text-red-400">&lt;/h1&gt;</span></div>
@@ -126,7 +126,7 @@ export default function LandingPage() {
                     <div className="flex items-center"><span className="text-zinc-400 dark:text-zinc-600 select-none mr-4">6</span><span className="w-0.5 h-4 bg-indigo-500 animate-pulse" /></div>
                   </div>
                 </div>
-                <div className="flex-1 p-6 bg-white dark:bg-[#0f0f1a] flex items-center justify-center">
+                <div className="flex-1 p-6 bg-zinc-50 dark:bg-[#0f0f1a] flex items-center justify-center cursor-default">
                   <div className="text-center">
                     <div className="text-2xl font-bold text-zinc-900 dark:text-zinc-100 mb-1">Hello, World!</div>
                     <div className="text-sm text-zinc-500 dark:text-zinc-400">Start editing...</div>

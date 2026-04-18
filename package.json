@@ -13,6 +13,7 @@
     "@monaco-editor/react": "^4.7.0",
     "autoprefixer": "^10.4.21",
     "class-variance-authority": "^0.7.1",
+    "emmet-monaco-es": "^5.7.0",
     "file-saver": "^2.0.5",
     "jszip": "^3.10.1",
     "lucide-react": "^0.553.0",
