@@ -100,36 +100,68 @@ export default function LandingPage() {
             viewport={{ once: true, margin: "-100px" }}
             className="max-w-5xl mx-auto"
           >
-            <div className="rounded-xl border border-zinc-200 dark:border-zinc-800 overflow-hidden shadow-2xl shadow-zinc-900/5 dark:shadow-black/30 cursor-default">
-              {/* Mock browser chrome */}
-              <div className="flex items-center gap-2 px-4 py-3 bg-zinc-100 dark:bg-zinc-900 border-b border-zinc-200 dark:border-zinc-800">
-                <div className="flex gap-1.5">
-                  <div className="w-3 h-3 rounded-full bg-red-400" />
-                  <div className="w-3 h-3 rounded-full bg-amber-400" />
-                  <div className="w-3 h-3 rounded-full bg-green-400" />
+            <div className="rounded-2xl border border-zinc-200/80 dark:border-zinc-800/80 overflow-hidden shadow-2xl shadow-zinc-900/10 dark:shadow-black/40 cursor-default bg-white dark:bg-[#0c0c0c]">
+              {/* Editor Header / Chrome */}
+              <div className="flex items-center px-4 py-3 bg-zinc-50/80 dark:bg-zinc-900/50 backdrop-blur-md border-b border-zinc-200/80 dark:border-zinc-800/80">
+                <div className="flex gap-2 w-20">
+                  <div className="w-3 h-3 rounded-full bg-red-400 dark:bg-red-500/80" />
+                  <div className="w-3 h-3 rounded-full bg-amber-400 dark:bg-amber-500/80" />
+                  <div className="w-3 h-3 rounded-full bg-green-400 dark:bg-green-500/80" />
                 </div>
-                <div className="flex-1 flex justify-center">
-                  <div className="px-4 py-1 rounded-md bg-zinc-200 dark:bg-zinc-800 text-xs text-zinc-500 dark:text-zinc-500 font-mono">
-                    localhost:3000/playground
+                
+                {/* Mock File Tabs */}
+                <div className="flex-1 flex justify-center gap-2">
+                  <div className="flex items-center gap-1.5 px-3 py-1.5 bg-white dark:bg-zinc-800 rounded-md shadow-sm border border-zinc-200 dark:border-zinc-700 text-xs font-medium text-zinc-700 dark:text-zinc-200">
+                    <Code2 className="w-3.5 h-3.5 text-orange-500" />
+                    index.html
+                  </div>
+                  <div className="hidden sm:flex items-center gap-1.5 px-3 py-1.5 bg-transparent rounded-md text-xs font-medium text-zinc-500 dark:text-zinc-400 hover:bg-zinc-200/50 dark:hover:bg-zinc-800/50 transition-colors">
+                    <MonitorPlay className="w-3.5 h-3.5 text-blue-500" />
+                    style.css
                   </div>
                 </div>
+                <div className="w-20" /> {/* Spacer for centering */}
               </div>
-              {/* Mock editor content */}
-              <div className="flex">
-                <div className="flex-1 p-6 bg-zinc-100 dark:bg-[#1a1a2e] font-mono text-sm border-r border-zinc-200 dark:border-zinc-800 cursor-text">
-                  <div className="space-y-1 text-zinc-600 dark:text-zinc-400">
-                    <div><span className="text-zinc-400 dark:text-zinc-600 select-none mr-4">1</span><span className="text-red-500 dark:text-red-400">&lt;div</span> <span className="text-amber-600 dark:text-amber-400">class</span>=<span className="text-green-600 dark:text-green-400">&quot;card&quot;</span><span className="text-red-500 dark:text-red-400">&gt;</span></div>
-                    <div><span className="text-zinc-400 dark:text-zinc-600 select-none mr-4">2</span>  <span className="text-red-500 dark:text-red-400">&lt;h1&gt;</span>Hello, World!<span className="text-red-500 dark:text-red-400">&lt;/h1&gt;</span></div>
-                    <div><span className="text-zinc-400 dark:text-zinc-600 select-none mr-4">3</span>  <span className="text-red-500 dark:text-red-400">&lt;p&gt;</span>Start editing...<span className="text-red-500 dark:text-red-400">&lt;/p&gt;</span></div>
-                    <div><span className="text-zinc-400 dark:text-zinc-600 select-none mr-4">4</span><span className="text-red-500 dark:text-red-400">&lt;/div&gt;</span></div>
-                    <div><span className="text-zinc-400 dark:text-zinc-600 select-none mr-4">5</span></div>
-                    <div className="flex items-center"><span className="text-zinc-400 dark:text-zinc-600 select-none mr-4">6</span><span className="w-0.5 h-4 bg-indigo-500 animate-pulse" /></div>
+
+              {/* Editor Workspace */}
+              <div className="flex flex-col sm:flex-row h-[350px] sm:h-[400px]">
+                {/* Code Panel */}
+                <div className="flex-1 p-5 bg-[#fafafa] dark:bg-[#121212] font-mono text-sm leading-relaxed border-b sm:border-b-0 sm:border-r border-zinc-200 dark:border-zinc-800/80 cursor-text overflow-hidden relative">
+                  <div className="absolute top-0 bottom-0 left-0 w-10 bg-zinc-100/50 dark:bg-[#181818] border-r border-zinc-200/50 dark:border-zinc-800/50 flex flex-col items-end py-5 pr-3 text-zinc-400 dark:text-zinc-500 select-none text-xs">
+                    <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span>
+                  </div>
+                  <div className="pl-6 space-y-0 text-zinc-700 dark:text-zinc-300">
+                    <div><span className="text-zinc-500">&lt;</span><span className="text-pink-600 dark:text-pink-400">div</span> <span className="text-cyan-600 dark:text-cyan-400">class</span><span className="text-zinc-500">=</span><span className="text-amber-600 dark:text-amber-300">"card"</span><span className="text-zinc-500">&gt;</span></div>
+                    <div className="pl-4"><span className="text-zinc-500">&lt;</span><span className="text-pink-600 dark:text-pink-400">h1</span><span className="text-zinc-500">&gt;</span><span className="text-zinc-900 dark:text-zinc-100">Hello, Developer</span><span className="text-zinc-500">&lt;/</span><span className="text-pink-600 dark:text-pink-400">h1</span><span className="text-zinc-500">&gt;</span></div>
+                    <div className="pl-4"><span className="text-zinc-500">&lt;</span><span className="text-pink-600 dark:text-pink-400">p</span><span className="text-zinc-500">&gt;</span><span className="text-zinc-600 dark:text-zinc-400">Ready to build something amazing?</span><span className="text-zinc-500">&lt;/</span><span className="text-pink-600 dark:text-pink-400">p</span><span className="text-zinc-500">&gt;</span></div>
+                    <div className="pl-4"><span className="text-zinc-500">&lt;</span><span className="text-pink-600 dark:text-pink-400">button</span> <span className="text-cyan-600 dark:text-cyan-400">id</span><span className="text-zinc-500">=</span><span className="text-amber-600 dark:text-amber-300">"magic-btn"</span><span className="text-zinc-500">&gt;</span><span className="text-zinc-900 dark:text-zinc-100">Click me</span><span className="text-zinc-500">&lt;/</span><span className="text-pink-600 dark:text-pink-400">button</span><span className="text-zinc-500">&gt;</span></div>
+                    <div><span className="text-zinc-500">&lt;/</span><span className="text-pink-600 dark:text-pink-400">div</span><span className="text-zinc-500">&gt;</span></div>
+                    <div className="h-6"></div>
+                    <div className="flex items-center"><span className="text-zinc-500">&lt;</span><span className="text-pink-600 dark:text-pink-400">style</span><span className="text-zinc-500">&gt;</span></div>
+                    <div className="flex items-center pl-4 relative">
+                      <span className="text-blue-600 dark:text-blue-400">.card</span> <span className="text-zinc-500">{'{'}</span>
+                      <motion.span 
+                        animate={{ opacity: [1, 0, 1] }} 
+                        transition={{ repeat: Infinity, duration: 1, ease: "linear" }}
+                        className="w-[2px] h-[1em] bg-indigo-500 ml-1 absolute left-[56px] top-[4px]"
+                      />
+                    </div>
                   </div>
                 </div>
-                <div className="flex-1 p-6 bg-zinc-50 dark:bg-[#0f0f1a] flex items-center justify-center cursor-default">
-                  <div className="text-center">
-                    <div className="text-2xl font-bold text-zinc-900 dark:text-zinc-100 mb-1">Hello, World!</div>
-                    <div className="text-sm text-zinc-500 dark:text-zinc-400">Start editing...</div>
+
+                {/* Preview Panel */}
+                <div className="flex-1 bg-white dark:bg-[#0f0f12] relative cursor-default overflow-hidden flex flex-col justify-center items-center">
+                  <div className="absolute top-4 right-4 z-10 px-2 py-1 rounded bg-zinc-100/80 dark:bg-zinc-800/80 text-[10px] font-bold text-zinc-500 dark:text-zinc-400 uppercase tracking-widest backdrop-blur-sm shadow-sm border border-zinc-200/50 dark:border-zinc-700/50">
+                    Live Preview
+                  </div>
+                  <div className="absolute inset-0 flex items-center justify-center p-8 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-zinc-50 to-zinc-100 dark:from-zinc-900/40 dark:to-[#0f0f12]">
+                    <div className="w-full max-w-sm bg-white dark:bg-[#18181A] p-8 text-center rounded-2xl shadow-[0_20px_50px_-12px_rgba(0,0,0,0.1)] dark:shadow-[0_20px_50px_-12px_rgba(0,0,0,0.6)] border border-zinc-100 dark:border-zinc-800/60 transform hover:-translate-y-1 transition-transform duration-300">
+                      <h2 className="text-2xl font-bold text-zinc-900 dark:text-white mb-2">Hello, Developer</h2>
+                      <p className="text-zinc-500 dark:text-zinc-400 mb-6 font-medium">Ready to build something amazing?</p>
+                      <button className="px-6 py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white font-medium rounded-lg shadow-md shadow-indigo-600/20 transition-all active:scale-95 w-full sm:w-auto">
+                        Click me
+                      </button>
+                    </div>
                   </div>
                 </div>
               </div>

@@ -11,7 +11,7 @@ import {
   Play, Download, Share2, RefreshCcw, 
   Settings, Layout, Sun, Moon,
   FileCode2, FileJson, Check, Terminal,
-  ChevronUp, ChevronDown, Trash2
+  ChevronUp, ChevronDown, Trash2, Code2, MonitorPlay
 } from "lucide-react";
 import { useTheme } from "@/components/theme-provider";
 import Link from "next/link";
@@ -297,32 +297,35 @@ function PlaygroundContent() {
     <div className="flex flex-col h-screen overflow-hidden bg-zinc-50 dark:bg-bg-primary text-zinc-900 dark:text-text-main font-sans">
       {/* Header */}
       <header className="flex-none h-14 border-b border-zinc-200 dark:bg-bg-secondary dark:border-border-dark flex items-center justify-between px-4">
-        <div className="flex items-center gap-4">
-          <Link href="/" className="font-bold flex items-center gap-2 hover:opacity-80 transition-opacity">
-            <span className="w-8 h-8 rounded bg-accent flex items-center justify-center text-white font-mono font-bold text-lg">&lt;/&gt;</span>
-            <span className="hidden sm:inline">Livepen</span>
+        <div className="flex items-center gap-5 xl:gap-8">
+          <Link href="/" className="font-bold flex items-center gap-2.5 hover:opacity-80 transition-opacity group">
+            <div className="w-8 h-8 rounded border border-[#6366F1] bg-[#6366F1]/10 flex items-center justify-center group-hover:bg-[#6366F1] transition-colors">
+              <Code2 className="w-4 h-4 text-[#6366F1] group-hover:text-white transition-colors" />
+            </div>
+            <span className="hidden sm:inline tracking-tight text-lg">Livepen</span>
           </Link>
           
-          <div className="h-6 w-px bg-zinc-300 dark:bg-border-dark mx-2"></div>
-          
-          <div className="flex bg-zinc-200 dark:bg-bg-tertiary p-1 rounded-md">
+          <div className="flex items-center bg-zinc-100 dark:bg-[#121212] p-1 rounded-lg border border-zinc-200/50 dark:border-zinc-800/80 shadow-inner">
             <button
               onClick={() => setActiveTab("html")}
-              className={`px-3 py-1 text-sm font-medium rounded transition-colors ${activeTab === "html" ? 'bg-white dark:bg-bg-secondary shadow-sm text-zinc-900 dark:text-text-main' : 'hover:bg-zinc-300 dark:hover:bg-bg-primary text-zinc-600 dark:text-text-muted'}`}
+              className={`flex items-center gap-1.5 px-3 py-1 text-xs sm:text-sm font-medium rounded-md transition-all duration-200 ${activeTab === "html" ? 'bg-white dark:bg-zinc-800 shadow-sm text-zinc-900 dark:text-white border border-zinc-200/50 dark:border-zinc-700/50' : 'text-zinc-500 dark:text-zinc-400 hover:text-zinc-700 dark:hover:text-zinc-200 hover:bg-zinc-200/50 dark:hover:bg-zinc-800/50 border border-transparent'}`}
             >
-              HTML
+              <FileCode2 className={`w-3.5 h-3.5 ${activeTab === 'html' ? 'text-orange-500' : 'opacity-70'}`} />
+              index.html
             </button>
             <button
               onClick={() => setActiveTab("css")}
-              className={`px-3 py-1 text-sm font-medium rounded transition-colors ${activeTab === "css" ? 'bg-white dark:bg-bg-secondary shadow-sm text-zinc-900 dark:text-text-main' : 'hover:bg-zinc-300 dark:hover:bg-bg-primary text-zinc-600 dark:text-text-muted'}`}
+              className={`flex items-center gap-1.5 px-3 py-1 text-xs sm:text-sm font-medium rounded-md transition-all duration-200 ${activeTab === "css" ? 'bg-white dark:bg-zinc-800 shadow-sm text-zinc-900 dark:text-white border border-zinc-200/50 dark:border-zinc-700/50' : 'text-zinc-500 dark:text-zinc-400 hover:text-zinc-700 dark:hover:text-zinc-200 hover:bg-zinc-200/50 dark:hover:bg-zinc-800/50 border border-transparent'}`}
             >
-              CSS
+              <MonitorPlay className={`w-3.5 h-3.5 ${activeTab === 'css' ? 'text-blue-500' : 'opacity-70'}`} />
+              style.css
             </button>
             <button
               onClick={() => setActiveTab("javascript")}
-              className={`px-3 py-1 text-sm font-medium rounded transition-colors ${activeTab === "javascript" ? 'bg-white dark:bg-bg-secondary shadow-sm text-zinc-900 dark:text-text-main' : 'hover:bg-zinc-300 dark:hover:bg-bg-primary text-zinc-600 dark:text-text-muted'}`}
+              className={`flex items-center gap-1.5 px-3 py-1 text-xs sm:text-sm font-medium rounded-md transition-all duration-200 ${activeTab === "javascript" ? 'bg-white dark:bg-zinc-800 shadow-sm text-zinc-900 dark:text-white border border-zinc-200/50 dark:border-zinc-700/50' : 'text-zinc-500 dark:text-zinc-400 hover:text-zinc-700 dark:hover:text-zinc-200 hover:bg-zinc-200/50 dark:hover:bg-zinc-800/50 border border-transparent'}`}
             >
-              JS
+              <Terminal className={`w-3.5 h-3.5 ${activeTab === 'javascript' ? 'text-yellow-500' : 'opacity-70'}`} />
+              script.js
             </button>
           </div>
         </div>
