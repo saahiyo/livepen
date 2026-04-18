@@ -1,6 +1,7 @@
 @import "tailwindcss";
 
 @custom-variant dark (&:where(.dark, .dark *));
+@custom-variant xs (@media (width >= 480px));
 
 @theme {
   --color-bg-primary: #0F1115; 

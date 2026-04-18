@@ -86,7 +86,16 @@ function PlaygroundContent() {
   const [isReady, setIsReady] = useState(false);
   const [consoleLogs, setConsoleLogs] = useState<Array<{ type: string; args: string; timestamp: number }>>([]);
   const [consoleOpen, setConsoleOpen] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
   const consoleEndRef = useRef<HTMLDivElement>(null);
+
+  // Detect mobile for panel orientation
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   // Initialize from URL or LocalStorage
   useEffect(() => {
@@ -294,38 +303,38 @@ function PlaygroundContent() {
   if (!isReady) return <div className="h-screen w-screen dark:bg-bg-primary"></div>;
 
   return (
-    <div className="flex flex-col h-screen overflow-hidden bg-zinc-50 dark:bg-bg-primary text-zinc-900 dark:text-text-main font-sans">
+    <div className="flex flex-col h-screen h-[100dvh] overflow-hidden bg-zinc-50 dark:bg-bg-primary text-zinc-900 dark:text-text-main font-sans">
       {/* Header */}
-      <header className="flex-none h-14 border-b border-zinc-200 dark:bg-bg-secondary dark:border-border-dark flex items-center justify-between px-4">
-        <div className="flex items-center gap-5 xl:gap-8">
-          <Link href="/" className="font-bold flex items-center gap-2.5 hover:opacity-80 transition-opacity group">
-            <div className="w-8 h-8 rounded border border-[#6366F1] bg-[#6366F1]/10 flex items-center justify-center group-hover:bg-[#6366F1] transition-colors">
-              <Code2 className="w-4 h-4 text-[#6366F1] group-hover:text-white transition-colors" />
+      <header className="flex-none h-12 sm:h-14 border-b border-zinc-200 dark:bg-bg-secondary dark:border-border-dark flex items-center justify-between px-2 sm:px-4">
+        <div className="flex items-center gap-2 sm:gap-5 xl:gap-8">
+          <Link href="/" className="font-bold flex items-center gap-2 sm:gap-2.5 hover:opacity-80 transition-opacity group">
+            <div className="w-7 h-7 sm:w-8 sm:h-8 rounded border border-[#6366F1] bg-[#6366F1]/10 flex items-center justify-center group-hover:bg-[#6366F1] transition-colors">
+              <Code2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#6366F1] group-hover:text-white transition-colors" />
             </div>
             <span className="hidden sm:inline tracking-tight text-lg">Livepen</span>
           </Link>
           
-          <div className="flex items-center bg-zinc-100 dark:bg-[#121212] p-1 rounded-lg border border-zinc-200/50 dark:border-zinc-800/80 shadow-inner">
+          <div className="flex items-center bg-zinc-100 dark:bg-[#121212] p-0.5 sm:p-1 rounded-lg border border-zinc-200/50 dark:border-zinc-800/80 shadow-inner">
             <button
               onClick={() => setActiveTab("html")}
-              className={`flex items-center gap-1.5 px-3 py-1 text-xs sm:text-sm font-medium rounded-md transition-all duration-200 ${activeTab === "html" ? 'bg-white dark:bg-zinc-800 shadow-sm text-zinc-900 dark:text-white border border-zinc-200/50 dark:border-zinc-700/50' : 'text-zinc-500 dark:text-zinc-400 hover:text-zinc-700 dark:hover:text-zinc-200 hover:bg-zinc-200/50 dark:hover:bg-zinc-800/50 border border-transparent'}`}
+              className={`flex items-center gap-1 sm:gap-1.5 px-2 sm:px-3 py-1 text-[11px] sm:text-sm font-medium rounded-md transition-all duration-200 ${activeTab === "html" ? 'bg-white dark:bg-zinc-800 shadow-sm text-zinc-900 dark:text-white border border-zinc-200/50 dark:border-zinc-700/50' : 'text-zinc-500 dark:text-zinc-400 hover:text-zinc-700 dark:hover:text-zinc-200 hover:bg-zinc-200/50 dark:hover:bg-zinc-800/50 border border-transparent'}`}
             >
-              <FileCode2 className={`w-3.5 h-3.5 ${activeTab === 'html' ? 'text-orange-500' : 'opacity-70'}`} />
-              index.html
+              <FileCode2 className={`w-3 h-3 sm:w-3.5 sm:h-3.5 ${activeTab === 'html' ? 'text-orange-500' : 'opacity-70'}`} />
+              <span className="hidden xs:inline">index.</span>html
             </button>
             <button
               onClick={() => setActiveTab("css")}
-              className={`flex items-center gap-1.5 px-3 py-1 text-xs sm:text-sm font-medium rounded-md transition-all duration-200 ${activeTab === "css" ? 'bg-white dark:bg-zinc-800 shadow-sm text-zinc-900 dark:text-white border border-zinc-200/50 dark:border-zinc-700/50' : 'text-zinc-500 dark:text-zinc-400 hover:text-zinc-700 dark:hover:text-zinc-200 hover:bg-zinc-200/50 dark:hover:bg-zinc-800/50 border border-transparent'}`}
+              className={`flex items-center gap-1 sm:gap-1.5 px-2 sm:px-3 py-1 text-[11px] sm:text-sm font-medium rounded-md transition-all duration-200 ${activeTab === "css" ? 'bg-white dark:bg-zinc-800 shadow-sm text-zinc-900 dark:text-white border border-zinc-200/50 dark:border-zinc-700/50' : 'text-zinc-500 dark:text-zinc-400 hover:text-zinc-700 dark:hover:text-zinc-200 hover:bg-zinc-200/50 dark:hover:bg-zinc-800/50 border border-transparent'}`}
             >
-              <MonitorPlay className={`w-3.5 h-3.5 ${activeTab === 'css' ? 'text-blue-500' : 'opacity-70'}`} />
-              style.css
+              <MonitorPlay className={`w-3 h-3 sm:w-3.5 sm:h-3.5 ${activeTab === 'css' ? 'text-blue-500' : 'opacity-70'}`} />
+              <span className="hidden xs:inline">style.</span>css
             </button>
             <button
               onClick={() => setActiveTab("javascript")}
-              className={`flex items-center gap-1.5 px-3 py-1 text-xs sm:text-sm font-medium rounded-md transition-all duration-200 ${activeTab === "javascript" ? 'bg-white dark:bg-zinc-800 shadow-sm text-zinc-900 dark:text-white border border-zinc-200/50 dark:border-zinc-700/50' : 'text-zinc-500 dark:text-zinc-400 hover:text-zinc-700 dark:hover:text-zinc-200 hover:bg-zinc-200/50 dark:hover:bg-zinc-800/50 border border-transparent'}`}
+              className={`flex items-center gap-1 sm:gap-1.5 px-2 sm:px-3 py-1 text-[11px] sm:text-sm font-medium rounded-md transition-all duration-200 ${activeTab === "javascript" ? 'bg-white dark:bg-zinc-800 shadow-sm text-zinc-900 dark:text-white border border-zinc-200/50 dark:border-zinc-700/50' : 'text-zinc-500 dark:text-zinc-400 hover:text-zinc-700 dark:hover:text-zinc-200 hover:bg-zinc-200/50 dark:hover:bg-zinc-800/50 border border-transparent'}`}
             >
-              <Terminal className={`w-3.5 h-3.5 ${activeTab === 'javascript' ? 'text-yellow-500' : 'opacity-70'}`} />
-              script.js
+              <Terminal className={`w-3 h-3 sm:w-3.5 sm:h-3.5 ${activeTab === 'javascript' ? 'text-yellow-500' : 'opacity-70'}`} />
+              <span className="hidden xs:inline">script.</span>js
             </button>
           </div>
           <Link href="/templates" className="hidden lg:flex items-center gap-2 px-3 py-1.5 text-xs font-medium text-zinc-500 dark:text-zinc-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">
@@ -334,23 +343,23 @@ function PlaygroundContent() {
           </Link>
         </div>
 
-        <div className="flex items-center gap-2 sm:gap-3">
+        <div className="flex items-center gap-1.5 sm:gap-3">
           <button 
             onClick={clearEditor}
-            className="p-2 text-zinc-500 dark:text-text-muted hover:text-red-500 dark:hover:text-red-400 transition-colors"
+            className="p-1.5 sm:p-2 text-zinc-500 dark:text-text-muted hover:text-red-500 dark:hover:text-red-400 transition-colors"
             title="Clear all"
           >
-            <RefreshCcw className="w-4 h-4" />
+            <RefreshCcw className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
           </button>
           
           <button 
             onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-            className="p-2 text-zinc-500 dark:text-text-muted hover:text-zinc-900 dark:hover:text-text-main transition-colors"
+            className="p-1.5 sm:p-2 text-zinc-500 dark:text-text-muted hover:text-zinc-900 dark:hover:text-text-main transition-colors"
           >
-            {theme === 'dark' ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
+            {theme === 'dark' ? <Sun className="w-3.5 h-3.5 sm:w-4 sm:h-4" /> : <Moon className="w-3.5 h-3.5 sm:w-4 sm:h-4" />}
           </button>
 
-          <div className="h-6 w-px bg-zinc-300 dark:bg-border-dark mx-1 hidden sm:block"></div>
+          <div className="h-5 sm:h-6 w-px bg-zinc-300 dark:bg-border-dark mx-0.5 sm:mx-1 hidden sm:block"></div>
 
           <button
             onClick={downloadZip}
@@ -362,12 +371,12 @@ function PlaygroundContent() {
           
           <button
             onClick={handleShare}
-            className="flex items-center gap-2 px-3 py-1.5 text-sm font-medium bg-accent hover:opacity-90 text-white rounded transition-colors w-24 justify-center"
+            className="flex items-center gap-1.5 sm:gap-2 px-2 sm:px-3 py-1 sm:py-1.5 text-xs sm:text-sm font-medium bg-accent hover:opacity-90 text-white rounded transition-colors w-auto sm:w-24 justify-center"
           >
             {shareCopied ? (
-              <><Check className="w-4 h-4" /> Copied</>
+              <><Check className="w-3.5 h-3.5 sm:w-4 sm:h-4" /> <span className="hidden sm:inline">Copied</span></>
             ) : (
-              <><Share2 className="w-4 h-4" /> Share</>
+              <><Share2 className="w-3.5 h-3.5 sm:w-4 sm:h-4" /> Share</>
             )}
           </button>
         </div>
@@ -375,7 +384,7 @@ function PlaygroundContent() {
 
       {/* Main Workspace */}
       <main className="flex-1 overflow-hidden">
-        <PanelGroup orientation="horizontal">
+        <PanelGroup orientation={isMobile ? "vertical" : "horizontal"} key={isMobile ? "v" : "h"}>
           {/* Editor Panel */}
           <Panel defaultSize={50} minSize={20} className="flex flex-col relative z-0">
             <div className="absolute top-2 right-4 z-10">
@@ -443,11 +452,11 @@ function PlaygroundContent() {
             </div>
           </Panel>
 
-          <PanelResizeHandle className="w-2 md:w-1 bg-zinc-200 dark:bg-border-dark hover:bg-accent dark:hover:bg-accent transition-colors cursor-col-resize z-10" />
+          <PanelResizeHandle className={`${isMobile ? 'h-1.5 cursor-row-resize' : 'w-1 cursor-col-resize'} bg-zinc-200 dark:bg-border-dark hover:bg-accent dark:hover:bg-accent transition-colors z-10`} />
 
           {/* Preview Panel */}
-          <Panel defaultSize={50} minSize={20} className="relative z-0 bg-white flex flex-col">
-            <div className="flex-none h-8 bg-[#F1F5F9] border-b border-[#E2E8F0] px-3 flex items-center justify-between text-[11px] font-semibold text-[#64748B] uppercase tracking-wider z-10">
+          <Panel defaultSize={50} minSize={15} className="relative z-0 bg-white flex flex-col">
+            <div className="flex-none h-7 sm:h-8 bg-[#F1F5F9] border-b border-[#E2E8F0] px-2 sm:px-3 flex items-center justify-between text-[10px] sm:text-[11px] font-semibold text-[#64748B] uppercase tracking-wider z-10">
               <span>Live Preview</span>
               <span className="flex items-center gap-3">
                 <span className="flex items-center gap-1.5 text-green-600 font-medium">
