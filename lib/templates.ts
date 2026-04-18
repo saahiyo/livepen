@@ -2,13 +2,132 @@ export interface Template {
   id: string;
   name: string;
   description: string;
-  category: "Layout" | "Component" | "Animation" | "Full Page";
+  category: "Layout" | "Component" | "Animation" | "Full Page" | "Starter";
   html: string;
   css: string;
   js: string;
 }
 
 export const templates: Template[] = [
+  {
+    id: "hello-world",
+    name: "Hello World",
+    description: "The simplest possible starting point. Just a heading and a clean background.",
+    category: "Starter",
+    html: `<h1>Hello World!</h1>
+<p>Start building something amazing with Livepen.</p>`,
+    css: `body {
+  font-family: system-ui, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  margin: 0;
+  background: #fdfdfd;
+  color: #111;
+}
+
+h1 {
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
+}`,
+    js: `console.log("Hello World template loaded!");`
+  },
+  {
+    id: "html5-boilerplate",
+    name: "HTML5 Boilerplate",
+    description: "A complete HTML5 structure with essential meta tags and a clean layout.",
+    category: "Starter",
+    html: `<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Livepen Project</title>
+</head>
+<body>
+    <header>
+        <h1>Website Title</h1>
+    </header>
+    <main>
+        <section>
+            <h2>Welcome</h2>
+            <p>This is a standard HTML5 starter template.</p>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Your Project</p>
+    </footer>
+</body>
+</html>`,
+    css: `body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    padding: 20px;
+    max-width: 800px;
+    mx-auto;
+}
+
+header {
+    border-bottom: 2px solid #eee;
+    margin-bottom: 20px;
+}
+
+footer {
+    margin-top: 40px;
+    color: #888;
+    font-size: 0.8rem;
+    border-top: 1px solid #eee;
+}`,
+    js: `// Start coding here`
+  },
+  {
+    id: "css-boilerplate",
+    name: "Modern CSS Reset",
+    description: "A modern CSS reset boilerplate to ensure consistent styling across browsers.",
+    category: "Starter",
+    html: `<div class="content">
+  <h1>CSS Reset Template</h1>
+  <p>This template includes a modern CSS reset in the CSS tab.</p>
+  <button>Test Button</button>
+</div>`,
+    css: `/* Modern CSS Reset */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+}
+
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  font-family: sans-serif;
+  padding: 2rem;
+}
+
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+
+input, button, textarea, select {
+  font: inherit;
+}
+
+p, h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+}
+
+#root, #__next {
+  isolation: isolate;
+}`,
+    js: `// No JS needed for a reset demo`
+  },
   {
     id: "modern-hero",
     name: "Glassmorphism Hero",
