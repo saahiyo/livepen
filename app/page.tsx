@@ -21,6 +21,7 @@ export default function LandingPage() {
           </div>
           <nav className="flex items-center gap-6">
             <Link href="#features" className="text-sm text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors">Features</Link>
+            <Link href="/templates" className="text-sm text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors">Templates</Link>
             <Link href="#preview" className="text-sm text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors">Preview</Link>
             <button
               onClick={() => setTheme(theme === "dark" ? "light" : "dark")}

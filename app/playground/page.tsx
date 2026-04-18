@@ -328,6 +328,10 @@ function PlaygroundContent() {
               script.js
             </button>
           </div>
+          <Link href="/templates" className="hidden lg:flex items-center gap-2 px-3 py-1.5 text-xs font-medium text-zinc-500 dark:text-zinc-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">
+            <Sparkles className="w-3.5 h-3.5" />
+            Templates
+          </Link>
         </div>
 
         <div className="flex items-center gap-2 sm:gap-3">
